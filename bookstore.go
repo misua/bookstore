@@ -1,13 +1,33 @@
 package bookstore
 
+import "fmt"
+
 type Book struct {
+	ID         string
 	Title      string
 	Author     string
 	Copies     int
 	PriceCents int
 }
 
-func GetAllBooks(catalog []Book) []Book {
-	return catalog
+type Catalog map[string]Book
+
+func GetAllBooks(catalog Catalog) []Book {
+	books := []Book{}
+	for _, b := range catalog {
+		books = append(books, b)
+	}
+	return books
+
+}
+
+func GetBookDetails(catalog Catalog, ID string) string {
+	// for _, b := range catalog {
+	// 	if b.ID == ID {
+	// 		return fmt.Sprintf("%s, by %s", b.Title, b.Author)
+	// 	}
+	// }
+	b := catalog[ID]
+	return fmt.Sprintf("%s, by %s", b.Title, b.Author)
 
 }

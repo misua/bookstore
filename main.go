@@ -1,9 +1,8 @@
-package main
+package bookstore
 
 import (
 	"fmt"
 )
-
 
 var books []Book
 
